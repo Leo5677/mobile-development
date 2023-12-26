@@ -1,14 +1,13 @@
-import { StyleSheet } from "react-native";
+import { Dimensions, StyleSheet } from "react-native";
 
 export default StyleSheet.create({
   container: {
     flex: 1,
     padding: 20,
-    justifyContent: "center",
     backgroundColor: "#f0f0f0",
   },
   input: {
-    marginBottom: 20,
+    marginBottom: 15,
     padding: 10,
     backgroundColor: "#fff",
     borderRadius: 8,
@@ -27,16 +26,20 @@ export default StyleSheet.create({
   buttonText: {
     color: "#fff",
   },
-  loginButton: {
-    padding: 10,
+  rolesButton: {
+    padding: 12,
     backgroundColor: "#6059FF",
-    borderRadius: 8,
+    borderRadius: 5,
     alignItems: "center",
   },
-  exitButton: {
-    padding: 10,
-    backgroundColor: "#FF4747",
-    borderRadius: 8,
+  buttonsContainer: {
+    flexDirection: "row",
+  },
+  button: {
+    marginRight: 10,
+    padding: 12,
+    backgroundColor: "#6059FF",
+    borderRadius: 5,
     alignItems: "center",
   },
 });

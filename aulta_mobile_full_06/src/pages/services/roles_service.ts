@@ -1,8 +1,8 @@
-import { User } from "../model/User";
+import { Roles } from "../model/Roles";
 import { authStorage } from "./auth_storage";
 
-class UserService {
-  private url = "http://192.168.0.108:3030/users";
+class RolesService {
+  private url = "http://192.168.0.108:3030/roles";
 
   public async list() {
     const logged = await authStorage.getLoggedUser();
@@ -27,12 +27,7 @@ class UserService {
     }
   }
 
-  public async create(
-    name: string,
-    username: string,
-    password: string,
-    roles: string[]
-  ) {
+  public async create(name: string, description: string) {
     const logged = await authStorage.getLoggedUser();
     const token = logged && logged.token ? logged.token : null;
 
@@ -44,7 +39,7 @@ class UserService {
         "Content-Type": "application/json",
         Authorization: `Bearer ${token}`,
       },
-      body: JSON.stringify({ name, username, password, roles }),
+      body: JSON.stringify({ name, description }),
     });
 
     const data = await response.json();
@@ -56,19 +51,19 @@ class UserService {
     }
   }
 
-  public async update(user: User) {
+  public async update(id: number, name: string, description: string) {
     const logged = await authStorage.getLoggedUser();
     const token = logged && logged.token ? logged.token : null;
 
     if (!token) throw new Error("Token is Null");
 
-    const response = await fetch(`${this.url}/${user.id}`, {
+    const response = await fetch(`${this.url}/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${token}`,
       },
-      body: JSON.stringify(user),
+      body: JSON.stringify({ name, description }),
     });
 
     const data = await response.json();
@@ -105,4 +100,4 @@ class UserService {
   }
 }
 
-export const userService = new UserService();
+export const rolesService = new RolesService();
