@@ -1,7 +1,7 @@
-#Atividade Final - Mobile Development
+# Atividade Final - Mobile Development
 
 ## Grupo
-###Leonardo Valensoela
-###Rafael Onassis
-###Thiago Pedroso
-###Wagner Felipe
+### Leonardo Valensoela
+### Rafael Onassis
+### Thiago Pedroso
+### Wagner Felipe
